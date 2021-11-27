@@ -1,0 +1,10 @@
+# This file contains the output files that need %exclude. Full path
+# names, one per line.
+/usr/bin/uncompress
+/usr/bin/zcat
+/usr/bin/zcmp
+/usr/bin/zdiff
+/usr/bin/zmore
+/usr/share/man/man1/uncompress.1
+/usr/share/man/man1/zcmp.1
+/usr/share/man/man1/zmore.1

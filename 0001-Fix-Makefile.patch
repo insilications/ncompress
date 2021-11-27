@@ -1,0 +1,25 @@
+From 2896f230bbde2da12c7cb58c74631e707ff6519a Mon Sep 17 00:00:00 2001
+From: Francisco Boni <boboniboni@gmail.com>
+Date: Thu, 12 Aug 2021 07:16:25 -0300
+Subject: [PATCH] Fix Makefile
+
+---
+ Makefile.def | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile.def b/Makefile.def
+index 6099d9e..def5208 100644
+--- a/Makefile.def
++++ b/Makefile.def
+@@ -7,7 +7,7 @@
+ DESTDIR=
+ 
+ # Base install directory
+-PREFIX=/usr/local
++PREFIX=/usr
+ 
+ # Install directory for binaries
+ BINDIR=$(PREFIX)/bin
+-- 
+2.32.0
+
