@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : ncompress
 Version  : 5.0
-Release  : 301
+Release  : 302
 URL      : file:///aot/build/clearlinux/packages/ncompress/ncompress-v5.0.tar.gz
 Source0  : file:///aot/build/clearlinux/packages/ncompress/ncompress-v5.0.tar.gz
 Summary  : No detailed summary available
@@ -50,7 +50,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1638045033
+export SOURCE_DATE_EPOCH=1639123750
 export GCC_IGNORE_WERROR=1
 ## altflags_pgo content
 ## pgo generate
@@ -137,8 +137,9 @@ export CXXFLAGS="${CXXFLAGS_GENERATE}"
 export FFLAGS="${FFLAGS_GENERATE}"
 export FCFLAGS="${FCFLAGS_GENERATE}"
 export LDFLAGS="${LDFLAGS_GENERATE}"
+export ASMFLAGS="${ASMFLAGS_GENERATE}"
 export LIBS="${LIBS_GENERATE}"
-make  %{?_smp_mflags}    V=1 VERBOSE=1 CFLAGS="${CFLAGS_GENERATE}" CXXFLAGS="${CXXFLAGS_GENERATE}" FFLAGS="${FFLAGS_GENERATE}" FCFLAGS="${FCFLAGS_GENERATE}" LDFLAGS="${LDFLAGS_GENERATE}" LIBS="${LIBS_GENERATE}"
+make  %{?_smp_mflags}    V=1 VERBOSE=1
 
 ## profile_payload start
 unset LD_LIBRARY_PATH
@@ -157,13 +158,14 @@ export CXXFLAGS="${CXXFLAGS_USE}"
 export FFLAGS="${FFLAGS_USE}"
 export FCFLAGS="${FCFLAGS_USE}"
 export LDFLAGS="${LDFLAGS_USE}"
-unset LIBS
-make  %{?_smp_mflags}    V=1 VERBOSE=1 CFLAGS="${CFLAGS_USE}" CXXFLAGS="${CXXFLAGS_USE}" FFLAGS="${FFLAGS_USE}" FCFLAGS="${FCFLAGS_USE}" LDFLAGS="${LDFLAGS_USE}" LIBS="${LIBS_GENERATE}"
+export ASMFLAGS="${ASMFLAGS_USE}"
+export LIBS="${LIBS_USE}"
+make  %{?_smp_mflags}    V=1 VERBOSE=1
 fi
 
 
 %install
-export SOURCE_DATE_EPOCH=1638045033
+export SOURCE_DATE_EPOCH=1639123750
 rm -rf %{buildroot}
 %make_install
 ## Remove excluded files
